@@ -6,13 +6,16 @@ import {
   Command,
   Frame,
   GalleryVerticalEnd,
+  Home,
+  Inbox,
   Map,
   PieChart,
+  Search,
   Settings2,
+  Sparkles,
   SquareTerminal,
 } from "lucide-react"
 
-import { NavMain } from "@/components/nav-main"
 import { NavProjects } from "@/components/nav-projects"
 import { NavUser } from "@/components/nav-user"
 import { TeamSwitcher } from "@/components/team-switcher"
@@ -23,6 +26,8 @@ import {
   SidebarHeader,
   SidebarRail,
 } from "@/components/ui/sidebar"
+import { NavMain } from "./nav-main"
+
 
 // This is sample data.
 const data = {
@@ -152,6 +157,30 @@ const data = {
       icon: Map,
     },
   ],
+  navMain2: [
+    {
+      title: "Search",
+      url: "#",
+      icon: Search,
+    },
+    {
+      title: "Ask AI",
+      url: "#",
+      icon: Sparkles,
+    },
+    {
+      title: "Home",
+      url: "#",
+      icon: Home,
+      isActive: true,
+    },
+    {
+      title: "Inbox",
+      url: "#",
+      icon: Inbox,
+      badge: "10",
+    },
+  ],
 }
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
@@ -161,7 +190,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <TeamSwitcher teams={data.teams} />
       </SidebarHeader>
       <SidebarContent>
-        <NavMain items={data.navMain} />
+        <NavMain items={data.navMain2} variant="no-collapse" />
+        <NavMain items={data.navMain} variant="collapse" />
         <NavProjects projects={data.projects} />
       </SidebarContent>
       <SidebarFooter>
