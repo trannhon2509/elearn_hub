@@ -2,7 +2,7 @@ import './App.css'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import configRoute from './routes/configRoute'
 import { Suspense } from 'react'
-import LoadingOverlay from './components/LoadingOverlay'
+import LoadingOverlay from './components/loadingOverlay'
 
 function App() {
   return (

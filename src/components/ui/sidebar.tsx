@@ -302,7 +302,6 @@ function SidebarRail({ className, ...props }: React.ComponentProps<"button">) {
 }
 
 function SidebarInset({ className, ...props }: React.ComponentProps<"main">) {
-  console.log('SidebarInset')
   return (
     <main
       data-slot="sidebar-inset"

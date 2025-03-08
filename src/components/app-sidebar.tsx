@@ -7,13 +7,13 @@ import {
   Frame,
   GalleryVerticalEnd,
   Home,
-  Inbox,
   Map,
   PieChart,
-  Search,
   Settings2,
-  Sparkles,
   SquareTerminal,
+  Book,
+  Calendar,
+  GraduationCap,
 } from "lucide-react"
 
 import { NavProjects } from "@/components/nav-projects"
@@ -160,23 +160,23 @@ const data = {
     {
       title: "Trang chủ",
       url: routePaths.DASHBOARD,
-      icon: Search,
+      icon: Home,
     },
     {
       title: "Khóa học",
       url: routePaths.COURSES,
-      icon: Sparkles,
+      icon: Book,
     },
     {
       title: "Lịch học",
       url: routePaths.SCHEDULE,
-      icon: Home,
+      icon: Calendar,
       isActive: true,
     },
     {
       title: "Học tập",
       url: routePaths.STUDY,
-      icon: Inbox,
+      icon: GraduationCap,
       // badge: "10",
     },
   ],
@@ -202,4 +202,4 @@ const AppSidebarComponent = ({ ...props }: React.ComponentProps<typeof Sidebar>)
   )
 }
 
-export const AppSidebar = React.memo(AppSidebarComponent)
+export const AppSidebar = AppSidebarComponent

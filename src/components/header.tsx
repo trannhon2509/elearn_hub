@@ -1,4 +1,3 @@
-import React from 'react';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { Separator } from "@/components/ui/separator";
 import { SidebarTrigger } from "@/components/ui/sidebar";
@@ -28,4 +27,4 @@ const Header = () => {
     );
 }
 
-export default React.memo(Header);
+export default Header;

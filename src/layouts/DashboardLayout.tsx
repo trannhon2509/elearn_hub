@@ -1,4 +1,3 @@
-import { Outlet } from "react-router-dom";
 import { AppSidebar } from "@/components/app-sidebar";
 import { SidebarRight } from "@/components/sidebar-right";
 import {
@@ -6,19 +5,30 @@ import {
     SidebarProvider,
 } from "@/components/ui/sidebar";
 import Header from "@/components/header";
+import React from "react";
 
+const MemoizedAppSidebar = React.memo(AppSidebar);
+const MemoizedSidebarRight = React.memo(SidebarRight);
+const MemoizedSidebarInset = React.memo(SidebarInset);
+const MemoizedHeader = React.memo(Header);
 
-export default function DashboardLayout() {
+interface DashboardLayoutProps {
+    children?: React.ReactNode;
+}
+
+const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
     return (
         <SidebarProvider>
-            <AppSidebar />
-            <SidebarInset>
-                <Header />
+            <MemoizedAppSidebar />
+            <MemoizedSidebarInset>
+                <MemoizedHeader />
                 <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
-                    <Outlet />
+                    {children}
                 </div>
-            </SidebarInset>
-            <SidebarRight />
+            </MemoizedSidebarInset>
+            <MemoizedSidebarRight />
         </SidebarProvider>
     );
 }
+
+export default React.memo(DashboardLayout);

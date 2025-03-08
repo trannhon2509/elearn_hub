@@ -69,4 +69,4 @@ const SidebarRightComponent = ({
   )
 }
 
-export const SidebarRight = React.memo(SidebarRightComponent)
+export const SidebarRight = SidebarRightComponent
