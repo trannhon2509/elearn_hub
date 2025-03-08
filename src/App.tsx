@@ -1,15 +1,30 @@
 import './App.css'
-import DashboardLayout from './layouts/DashboardLayout'
-import Dashboard from './pages/Dashboard'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import configRoute from './routes/configRoute'
+import { Suspense } from 'react'
+import LoadingOverlay from './components/LoadingOverlay'
 
 function App() {
-
   return (
-    <>
-      <DashboardLayout>
-        <Dashboard />
-      </DashboardLayout>
-    </>
+    <Router>
+      <Routes>
+        {configRoute.map((route, index) => {
+          const Component = route.component
+          const Layout = route.layout
+          return (
+            <Route key={index} path={route.path} element={
+              <Suspense fallback={<LoadingOverlay fullScreen={true} />}>
+                <Layout>
+                  <Suspense fallback={<LoadingOverlay fullScreen={false} />}>
+                    <Component />
+                  </Suspense>
+                </Layout>
+              </Suspense>
+            } />
+          )
+        })}
+      </Routes>
+    </Router>
   )
 }
 

@@ -1,4 +1,3 @@
-"use client"
 
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
@@ -277,6 +276,7 @@ function SidebarTrigger({
 }
 
 function SidebarRail({ className, ...props }: React.ComponentProps<"button">) {
+  console.log('SidebarRail')
   const { toggleSidebar } = useSidebar()
 
   return (
@@ -302,6 +302,7 @@ function SidebarRail({ className, ...props }: React.ComponentProps<"button">) {
 }
 
 function SidebarInset({ className, ...props }: React.ComponentProps<"main">) {
+  console.log('SidebarInset')
   return (
     <main
       data-slot="sidebar-inset"

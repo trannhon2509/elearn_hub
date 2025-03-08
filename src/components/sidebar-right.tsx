@@ -38,9 +38,9 @@ const data = {
   ],
 }
 
-export function SidebarRight({
+const SidebarRightComponent = ({
   ...props
-}: React.ComponentProps<typeof Sidebar>) {
+}: React.ComponentProps<typeof Sidebar>) => {
   return (
     <Sidebar
       collapsible="none"
@@ -68,3 +68,5 @@ export function SidebarRight({
     </Sidebar>
   )
 }
+
+export const SidebarRight = React.memo(SidebarRightComponent)

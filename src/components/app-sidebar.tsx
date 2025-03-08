@@ -27,9 +27,8 @@ import {
   SidebarRail,
 } from "@/components/ui/sidebar"
 import { NavMain } from "./nav-main"
+import routePaths from "@/routes/routePath"
 
-
-// This is sample data.
 const data = {
   user: {
     name: "shadcn",
@@ -159,31 +158,32 @@ const data = {
   ],
   navMain2: [
     {
-      title: "Search",
-      url: "#",
+      title: "Trang chủ",
+      url: routePaths.DASHBOARD,
       icon: Search,
     },
     {
-      title: "Ask AI",
-      url: "#",
+      title: "Khóa học",
+      url: routePaths.COURSES,
       icon: Sparkles,
     },
     {
-      title: "Home",
-      url: "#",
+      title: "Lịch học",
+      url: routePaths.SCHEDULE,
       icon: Home,
       isActive: true,
     },
     {
-      title: "Inbox",
-      url: "#",
+      title: "Học tập",
+      url: routePaths.STUDY,
       icon: Inbox,
-      badge: "10",
+      // badge: "10",
     },
   ],
 }
 
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+const AppSidebarComponent = ({ ...props }: React.ComponentProps<typeof Sidebar>) => {
+  console.log('AppSidebar')
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
@@ -201,3 +201,5 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     </Sidebar>
   )
 }
+
+export const AppSidebar = React.memo(AppSidebarComponent)
