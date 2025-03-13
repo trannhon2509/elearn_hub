@@ -31,13 +31,15 @@ type NavItem = {
 export function NavMain({
   items,
   variant = "no-collapse",
+  splitTitle
 }: {
   items: NavItem[]
-  variant?: "collapse" | "no-collapse"
+  variant?: "collapse" | "no-collapse",
+  splitTitle?: string
 }) {
   return (
     <SidebarGroup>
-      <SidebarGroupLabel>Platform</SidebarGroupLabel>
+      <SidebarGroupLabel>{splitTitle}</SidebarGroupLabel>
       <SidebarMenu>
         {items.map((item) => (
           variant === "collapse" ? (

@@ -1,8 +1,8 @@
 import BannerCarousel from '@/components/banner-carousel'
 import { BarChart3, BookOpen, Calendar, GraduationCap } from 'lucide-react'
-import React, { useState } from 'react';
+import React from 'react';
 import CardList from './components/CardList'
-import { Progress } from '@/components/ui/progress'
+import ProgressList from './components/ProgressList';
 
 const cardData = [
     {
@@ -54,28 +54,24 @@ const slides = [
     },
 ]
 
+const progressData = [
+    { value: 77, title: "Khóa học đang học" },
+    { value: 50, title: "Bài học hoàn thành" },
+    { value: 30, title: "Giờ học tích lũy" },
+    { value: 8, title: "Chứng chỉ đạt được" }
+];
+
 const MemoizedBannerCarousel = React.memo(BannerCarousel);
 const MemoizedCardList = React.memo(CardList);
+const MemoizedProgressList = React.memo(ProgressList);
 
 const Dashboard: React.FC = () => {
-    const [progress, setProgress] = useState(50);
-
-    const increaseProgress = (amount: number) => {
-        setProgress(prev => Math.min(prev + amount, 100));
-    };
 
     return (
         <div className='flex flex-1 flex-col gap-4 pt-0'>
             <MemoizedBannerCarousel slides={slides} intervalSeconds={10} />
             <MemoizedCardList loading cards={cardData} />
-            <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min">
-                <h2 className='mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0'>Tiến độ học tập</h2>
-                <Progress value={progress} color='#fdf1d8' />
-                <div className="flex gap-2 mt-4">
-                    <button onClick={() => increaseProgress(10)} className="btn btn-primary">Tăng 10%</button>
-                    <button onClick={() => increaseProgress(20)} className="btn btn-secondary">Tăng 20%</button>
-                </div>
-            </div>
+            <MemoizedProgressList progresses={progressData} />
         </div>
     )
 }

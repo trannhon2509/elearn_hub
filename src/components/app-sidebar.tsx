@@ -190,8 +190,8 @@ const AppSidebarComponent = ({ ...props }: React.ComponentProps<typeof Sidebar>)
         <TeamSwitcher teams={data.teams} />
       </SidebarHeader>
       <SidebarContent>
-        <NavMain items={data.navMain2} variant="no-collapse" />
-        <NavMain items={data.navMain} variant="collapse" />
+        <NavMain items={data.navMain2} variant="no-collapse" splitTitle="Trang chính"/>
+        <NavMain items={data.navMain} variant="collapse" splitTitle="Hỗ trợ"/>
         <NavProjects projects={data.projects} />
       </SidebarContent>
       <SidebarFooter>

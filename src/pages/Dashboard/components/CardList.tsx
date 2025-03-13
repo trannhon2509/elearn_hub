@@ -13,6 +13,7 @@ interface CardData {
 
 const CardList: React.FC<{ cards: CardData[], loading?: boolean }> = ({ cards, loading }) => {
     console.log('CardList render')
+    
     return (
         <div className="grid auto-rows-min gap-4 md:grid-cols-2 lg:grid-cols-4">
             {cards.map((card, index) => (
